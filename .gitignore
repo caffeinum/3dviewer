@@ -26,6 +26,7 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
+<<<<<<< HEAD
 Icon
 # Node.js modules
 node_modules/
@@ -33,6 +34,10 @@ node_modules/
 .c9/
 
 
+=======
+Icon# Node.js modules
+node_modules/
+>>>>>>> 4cc5b48a74a4617dcc6b68897ede5facdaac19b4
 
 # Thumbnails
 ._*

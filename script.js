@@ -167,7 +167,11 @@ function initBuffers() {
 }
 
 
+<<<<<<< HEAD
 function drawScene(frame) {
+=======
+function drawScene(even) {
+>>>>>>> 4cc5b48a74a4617dcc6b68897ede5facdaac19b4
 	gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
@@ -175,6 +179,10 @@ function drawScene(frame) {
 
 	mat4.identity(mvMatrix);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cc5b48a74a4617dcc6b68897ede5facdaac19b4
 	mat4.translate(mvMatrix, mvMatrix, [-1.5, 0.0, -7.0]);
 /*
 	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
@@ -184,10 +192,8 @@ function drawScene(frame) {
 	gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer.numItems);
 
 */
-
 	x = (frame % 2) ? 1.0 : -1.0;
-	c = (frame % 2) ?  : ;
-	
+
 	mat4.translate(mvMatrix, mvMatrix, [x, 0.0, 0.0]);
 	gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer);
 	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
@@ -199,6 +205,7 @@ function drawScene(frame) {
 
 $(document).ready(function () {
     var viewer = new CanvasWrapper('viewer', 'experimental-webgl');
+
 	var frame=0;
 	gl = viewer.context;
 	
@@ -218,4 +225,6 @@ $(document).ready(function () {
 			drawScene(frame++);
 		}, 50/3);
 	}, 1000);
+	gl.clearColor(1.0, 0.0, 0.0, 1.0);
+	gl.enable(gl.DEPTH_TEST);
 });
