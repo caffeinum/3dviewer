@@ -167,11 +167,8 @@ function initBuffers() {
 }
 
 
-<<<<<<< HEAD
 function drawScene(frame) {
-=======
-function drawScene(even) {
->>>>>>> 4cc5b48a74a4617dcc6b68897ede5facdaac19b4
+
 	gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
@@ -179,10 +176,6 @@ function drawScene(even) {
 
 	mat4.identity(mvMatrix);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4cc5b48a74a4617dcc6b68897ede5facdaac19b4
 	mat4.translate(mvMatrix, mvMatrix, [-1.5, 0.0, -7.0]);
 /*
 	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
