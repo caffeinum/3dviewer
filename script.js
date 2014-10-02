@@ -123,10 +123,11 @@ function initShaders() {
 	shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
 	gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
 
-	shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
-	shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
+	shaderProgram.pMatrixUniform 	= gl.getUniformLocation(shaderProgram, "uPMatrix");
+	shaderProgram.mvMatrixUniform 	= gl.getUniformLocation(shaderProgram, "uMVMatrix");
+	shaderProgram.colourUniform 	= gl.getUniformLocation(shaderProgram, "uColour");
+	
 }
-
 
 var mvMatrix = mat4.create();
 var pMatrix = mat4.create();
@@ -134,6 +135,7 @@ var pMatrix = mat4.create();
 function setMatrixUniforms() {
 	gl.uniformMatrix4fv(shaderProgram.pMatrixUniform, false, pMatrix);
 	gl.uniformMatrix4fv(shaderProgram.mvMatrixUniform, false, mvMatrix);
+	gl.uniform4fv(shaderProgram.colourUniform, 0, 0, 1);
 }
 
 
@@ -168,7 +170,11 @@ function initBuffers() {
 
 
 function drawScene(frame) {
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> cd798d5ead9353d183d643fad6794e00b779f4d7
 	gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
@@ -187,6 +193,10 @@ function drawScene(frame) {
 */
 	x = (frame % 2) ? 1.0 : -1.0;
 
+	
+	var loc = glGetUniformLocation(shaderProgram, "uColour");
+	glUniform1f(loc, 0.432);
+	
 	mat4.translate(mvMatrix, mvMatrix, [x, 0.0, 0.0]);
 	gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer);
 	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,

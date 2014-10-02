@@ -8,9 +8,15 @@
 		<script src="gl-matrix.js"></script>
 		<script id="shader-fs" type="x-shader/x-fragment">
 			precision mediump float;
+<<<<<<< HEAD
 
 			void main(gl_FragColor) {
 				gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+=======
+			uniform vec4 uColour;
+			void main(void) {
+				gl_FragColor = uColour;
+>>>>>>> cd798d5ead9353d183d643fad6794e00b779f4d7
 			}
 		</script>
 
