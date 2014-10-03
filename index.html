@@ -9,19 +9,25 @@
 		<script id="shader-fs" type="x-shader/x-fragment">
 			precision mediump float;
 
-			uniform vec4 uColour;
+			varying vec3 position;
+			uniform vec4 uFromColour;
+			uniform vec4 uToColour;
+			
+			
 			void main(void) {
-				gl_FragColor = uColour;
+				gl_FragColor = uFromColour + ( uToColour - uFromColour ) * (position.x + 1.0) * .5;
 			}
 		</script>
 
 		<script id="shader-vs" type="x-shader/x-vertex">
 			attribute vec3 aVertexPosition;
-
+			varying vec3 position;
+			
 			uniform mat4 uMVMatrix;
 			uniform mat4 uPMatrix;
 
 			void main(void) {
+				position = aVertexPosition;
 				gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
 			}
 		</script>
@@ -29,7 +35,7 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <canvas id="viewer" width="1200" height="800">
+        <canvas id="viewer" width="1024" height="768">
         </canvas>
     </body>
 </html>
