@@ -185,10 +185,10 @@ function drawScene(frame) {
 	gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer.numItems);
 
 */
-	x = (frame % 2) ? 1.0 : -1.0;
+	//x = (frame % 2) ? 1.0 : -1.0;
 	c = (frame % 2) ? 1.0 : 0.0;
 
-	mat4.translate(mvMatrix, mvMatrix, [x, 0.0, 0.0]);
+	mat4.translate(mvMatrix, mvMatrix, [1.0, 0.0, 0.0]);
 	gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer);
 	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
 						   squareVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
@@ -201,7 +201,7 @@ function drawScene(frame) {
 $(document).ready(function () {
     var viewer = new CanvasWrapper('viewer', 'experimental-webgl');
 
-	var frame=0;
+	var frame = 0;
 	gl = viewer.context;
 	
 	gl.viewportWidth 	= viewer.canvas.width;
@@ -215,6 +215,7 @@ $(document).ready(function () {
 
 	var int = 0;
 	setInterval(function () {
+		frame = 0;
 		clearInterval(int);
 		int = setInterval(function () {
 			drawScene(frame++);
