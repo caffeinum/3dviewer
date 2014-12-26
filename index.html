@@ -2,11 +2,12 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>Visualisation GTR</title>
+        <title>3D Viewer</title>
         <link rel="stylesheet" href="style.css" />
-        <script src="jquery-2.1.1.min.js"></script>
-		<script src="gl-matrix.js"></script>
-		<script id="shader-fs" type="x-shader/x-fragment">
+        <script src="lib/jquery-2.1.1.min.js"></script>
+		<script src="lib/gl-matrix.js"></script>
+		<script src="lib/sylvester.src.js"></script>
+		<script src="shader/fragment.shader" id="shader-fs" type="x-shader/x-fragment">
 			precision mediump float;
 
 			uniform vec4 uColour;
@@ -15,7 +16,7 @@
 			}
 		</script>
 
-		<script id="shader-vs" type="x-shader/x-vertex">
+		<script src="shader/vertex.shader" id="shader-vs" type="x-shader/x-vertex">
 			attribute vec3 aVertexPosition;
 
 			uniform mat4 uMVMatrix;
@@ -29,7 +30,10 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <canvas id="viewer" width="1200" height="800">
+        <canvas id="leftEye" width="800" height="800">
         </canvas>
+        <canvas id="rightEye" width="800" height="800">
+        </canvas>
+		<div id="output"></div>
     </body>
 </html>
